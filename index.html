@@ -2,10 +2,10 @@
 <html>
 <head>
   <meta charset="UTF-8">
-  <title>Only for you</title>
+  <title>love letter</title>
   <meta name="language" content="ko">
-  <meta name="title" content="Only for you">
-  <meta name="github" content="https://github.com/sun0225SUN/Awesome-Love-Code">
+  <meta name="title" content="love letter">
+  <meta name="github" content="https://github.com/woorim960/love-letters-collection">
   <meta name="describe" content="우리밋,고백,프로포즈,propose,code">
   <link rel="icon" type="image/x-icon" href="https://cdn.jsdelivr.net/gh/sun0225SUN/photos/img/20210715233345.png">
   <link type="text/css" rel="stylesheet" href="css/theme.css" />
@@ -14,12 +14,12 @@
 
 <body>
   <div id="div_container">
-    <!-- 最外层div，用于居中兼容PC和移动 -->
+    <!-- 가장 바깥쪽 div, 중앙 호환 PC 및 모바일용 -->
     <div id="div_start_bg"></div>
     <div id="div_onlyyou">
-      <!-- 用于设置背景 -->
+      <!-- 배경 설정 -->
       <div id="div_oy_inner">
-        <!-- 用于存放content -->
+        <!-- 컨텐츠 저장에 사용 -->
         <div class="div_oy_text">
           <h1></h1>
           <img class="img_oy_text" src="" />
@@ -76,10 +76,10 @@
 
         <div class="div_music_tips"></div>
         <div class="div_btn" id="div_music" onclick="music_switch()">
-          <!-- 音乐按钮部分 -->
+          <!-- 음악 버튼 -->
           <img id="img_music" src="images/music_note_big.png"
             style="-webkit-animation: music_play_rotate 1s linear infinite;" />
-          <!-- 您的浏览器不支持播放音乐 -->
+          <!-- 브라우저에서 음악 재생을 지원하지 않습니다 -->
           <audio id="audio_music" autoplay="autoplay" loop="loop">
             <source type="audio/mpeg" />
           </audio>
@@ -99,7 +99,7 @@
 
 
   <script>
-    //判断客户端设备，选择写入meta
+    // 클라이언트 디바이스 판단, 메타데이터 쓰기
     function init_viewport() {
       if (navigator.userAgent.indexOf("Android") != -1) {
         var version = parseFloat(RegExp.$1);
@@ -181,7 +181,7 @@
 
     // console.log(main_title);
     if (main_title == "" || main_title == "null") {
-      //允许标题为空
+      // 제목이 빈 경우 아래 타이틀 삽입
       document.title = "I Love You ❤️";
     }
 
@@ -192,9 +192,10 @@
     var typed_bool;
     var interval_pw_height;
     var height_div_pw = $(".div_pure_words_height").height();
+
     function init_pure_words() {
-      $(".div_pure_words_height").html(pure_words_content + "22222"); //初始化复制内容，撑开文档高度
-      // 初始化设置div的bg图片 初始化设置div的bg图片
+      $(".div_pure_words_height").html(pure_words_content + "22222"); // 복사 내용을 초기화하고 문서 높이를 늘립니다
+      // div의 bg 그림 초기화 설정
       if (
         typeof theme_content["bg_style_pure_words"] != "undefined" &&
         theme_content["bg_style_pure_words"] == "bg_opacity"
@@ -208,13 +209,13 @@
           });
         }
       }
-      //以下是打字效果的js
+      // 다음은 타이핑 효과의 js입니다.
       if (
         typeof theme_content["cursor_char"] != "undefined" &&
         theme_content["cursor_char"] != ""
       ) {
         switch (
-        theme_content["cursor_char"] //设置打字光标的样式
+        theme_content["cursor_char"] // 타이핑 커서 스타일 설정
         ) {
           case "cursor_heart":
             str_cursorChar = '<um style="color: #F44336;">❤</um>';
@@ -235,20 +236,23 @@
             str_cursorChar = "|";
         }
       } else {
-        //处理全新作品，默认显示打字效果
+        // 새로운 작품을 처리하고, 기본적으로 타이핑 효과를 표시합니다.
         str_cursorChar = "❤";
       }
-      //判断用户有没有选择打字效果
+
+      // 사용자가 타이핑 효과를 선택했는지 여부를 판단하다
       if (
         typeof theme_content["typed_bool"] != "undefined" &&
         theme_content["typed_bool"] != ""
       ) {
         typed_bool = theme_content["typed_bool"] == "typed_y" ? true : false;
       } else {
-        typed_bool = false; //默认显示打字效果
+        typed_bool = false; // 기본적으로 타이핑 효과 보이기
       }
+
       display_pure_words();
       $(".div_pure_words").fadeIn();
+
       interval_pw_height = setInterval(function () {
         console.log(
           "div_pure_words_height -> " + $(".div_pure_words_height").height()
@@ -260,7 +264,7 @@
           clearInterval(interval_pw_height);
           $(".div_pure_words_height").height(least_height_div_pw + 100);
           if ($(".div_pure_words_height").height() < window_height) {
-            $(".div_pure_words_height").height(window_height); //不能小于窗口的高度
+            $(".div_pure_words_height").height(window_height); // 창 높이보다 작을 수 없음
             console.log("let us be high as window");
           }
         }
@@ -270,14 +274,10 @@
     function display_pure_words() {
       if (typed_bool) {
         var typed_pure_words = new Typed("#span_pw_typed", {
-          strings: [pure_words_content],
-          //输入内容, 支持html标签
-          typeSpeed: 120,
-          //打字速度
-          cursorChar: str_cursorChar,
-          //替换光标的样式
-          contentType: "html",
-          //值为html时，将打印的文本标签直接解析html标签
+          strings: [pure_words_content], // 내용 입력, HTML 태그 지원
+          typeSpeed: 120, // 타이핑 속도
+          cursorChar: str_cursorChar, // 커서 스타일 바꾸기
+          contentType: "html", // 값이 html일 경우 인쇄된 텍스트 라벨을 html 라벨로 직접 해석
           onComplete: function (abc) {
             // console.log(abc);
             console.log("finished typing words");
@@ -285,11 +285,12 @@
           },
         });
       } else {
-        //如果不需要打字效果就直接显示
+        // 타이핑이 필요하지 않으면 바로 표시
         $("#span_pw_typed").html(pure_words_content).fadeIn();
       }
       init_attachment();
     }
+
     var start_content = {
       chase_title:
         "To. 유리❣️",
@@ -307,14 +308,15 @@
       bg_img: "images/2.jpg",
       img_bool: "img_true",
       img_src: "images/1.gif",
-    }; //可能为null
+    }; // null일 수 있음
     console.log(start_content);
     var start_id;
     $(function () {
-      //此事件为触发互动创意
-      start_id = "onlyyou"; //可能为null
+      // 이 이벤트는 인터랙티브한 아이디어를 촉발합니다
+      start_id = "onlyyou"; // null일 수 있음
       init_start(start_id);
     });
+
     function init_start(start_id) {
       console.log("init_start ->" + start_id);
       switch (start_id) {
@@ -346,7 +348,8 @@
           init_theme();
       }
     }
-    //开始动画主体部分
+
+    // 애니메이션 본체 시작
     function init_theme() {
       console.log("init_theme");
 
@@ -362,14 +365,14 @@
       $("#div_start_bg").fadeOut();
       init_pure_words();
     }
-    var attachment = "null"; //可能为null
+    var attachment = "null"; // null일 수 있음
     var attached_content = {
       bool_save: false,
-    }; //可能为null
+    }; // null일 수 있음
     console.log(attached_content);
 
     function init_attachment() {
-      //开始attachment
+      // attachment 시작
       console.log("init_attachment ->" + attachment);
       switch (attachment) {
         case "timer":
@@ -380,6 +383,7 @@
       }
     }
   </script>
+
   <!-- JQuery -->
   <script src="js/typed.min.js"></script>
   <script src="js/start_onlyyou.js"></script>
